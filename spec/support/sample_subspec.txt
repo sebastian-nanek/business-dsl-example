@@ -1,0 +1,5 @@
+1. Section "Invoice reports"
+
+System presents "Unpaid invoices" report.
+System presents "Paid invoices" report.
+
