@@ -53,19 +53,7 @@ class SymbolTable
   # pushes SemanticModel::Base descendant (i.e. Resource) into database
   # under key based on its name
   def <<(obj)
-    #puts "---"
-    #puts obj.inspect
-    #puts "---"
-
     mapped_name = map_key(obj.name)
-
-=begin
-    puts "---------------"
-    puts @table[mapped_name].inspect
-    puts "---------------"
-    puts obj.inspect
-    puts "---------------"
-=end
 
     if @table[mapped_name].nil?
       # empty key - just insert
@@ -74,7 +62,6 @@ class SymbolTable
       else
         @table[mapped_name] = obj
       end
-    #elsif obj.kind_of?(@table[mapped_name].class) and @table[mapped_name].merge_possible?(obj)
     elsif @table[mapped_name].merge_possible?(obj)
       # not empty, but merge possible
       @table[mapped_name].merge_with(obj)
