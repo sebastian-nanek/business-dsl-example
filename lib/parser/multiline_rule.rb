@@ -6,7 +6,6 @@ class Parser::MultilineRule < Parser::BaseRule
   def initialize(expr, multiline_expr = nil, opts = {}, &block)    
     raise Parser::NoMatchingRuleProvided.new("Rule must have matching rule Regexp provided.") unless expr.kind_of?(Regexp)
     raise Parser::NoMatchingRuleProvided.new("Rule must have matching rule subdefinition Regexp provided.") unless multiline_expr.kind_of?(Regexp)
-    #raise Parser::EmptyCode.new("Rule must have production code.") if block.nil?
     @expression = expr
     @production_code = block
     @multiline_expression = multiline_expr    
